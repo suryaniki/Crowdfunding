@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FundIt - Crowdfunding Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="animation.css">
+    <link rel="stylesheet" href="design.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p>Loading FundIt...</p>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <i class="fas fa-rocket"></i>
+                <span>FundIt</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#" onclick="showView('home')" class="nav-link">Home</a></li>
+                <li><a href="#" onclick="showView('projects')" class="nav-link">Projects</a></li>
+                <li><a href="#" onclick="showView('about')" class="nav-link">About</a></li>
+                <li><a href="#" onclick="showView('how-it-works')" class="nav-link">How It Works</a></li>
+                <li><a href="#" onclick="showView('contact')" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="btn btn-outline" onclick="showView('login')">Login</button>
+                <button class="btn btn-primary" onclick="showView('create')">Start Project</button>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Home View -->
+        <div id="home" class="view active">
+            <!-- Hero Section -->
+            <section class="hero">
+    <div class="hero-background">
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+            <div class="shape shape-5"></div>
+            <div class="shape shape-6"></div>
+        </div>
+        <div class="animated-grid"></div>
+        <div class="particle-system" id="particles"></div>
+    </div>
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-badge animate-bounce-in">
+                <i class="fas fa-star"></i>
+                <span>Trusted by 15,000+ creators</span>
+            </div>
+            <h1 class="hero-title animate-slide-up">
+                <span class="text-gradient typing-animation">Fund Your Dreams</span>
+                <br>
+                <span class="animate-slide-up-delay">Build the Future</span>
+            </h1>
+            <p class="hero-subtitle animate-fade-in-up">
+                Join thousands of creators and backers in bringing innovative projects to life.
+                Your idea could be the next big thing.
+            </p>
+            <div class="hero-actions animate-fade-in-up-delay">
+                <button class="btn btn-primary btn-large btn-glow" onclick="showView('create')">
+                    <i class="fas fa-plus"></i>
+                    <span>Start Your Project</span>
+                    <div class="btn-ripple"></div>
+                </button>
+                <button class="btn btn-outline btn-large btn-hover-fill" onclick="showView('projects')">
+                    <i class="fas fa-search"></i>
+                    <span>Explore Projects</span>
+                </button>
+            </div>
+            <div class="hero-stats animate-stats">
+                <div class="stat-item">
+                    <div class="stat-number" data-count="1250">0</div>
+                    <div class="stat-label">Projects Funded</div>
+                    <div class="stat-progress"></div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="2.5">0</div>
+                    <div class="stat-label">Million Raised</div>
+                    <div class="stat-progress"></div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="15000">0</div>
+                    <div class="stat-label">Happy Backers</div>
+                    <div class="stat-progress"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="scroll-indicator">
+        <div class="scroll-arrow">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </div>
+</section>
+
+            <!-- Add this new section after the hero -->
+<section class="features-section">
+    <div class="container">
+        <div class="section-header animate-on-scroll">
+            <h2 class="section-title">Why Choose FundIt?</h2>
+            <p class="section-subtitle">The most trusted crowdfunding platform for creators worldwide</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card animate-on-scroll" data-delay="0">
+                <div class="feature-icon">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-shield-alt"></i>
+                        <div class="icon-bg"></div>
+                    </div>
+                </div>
+                <h3>Secure & Trusted</h3>
+                <p>Your funds are protected with bank-level security and transparent processes.</p>
+                <div class="feature-hover-effect"></div>
+            </div>
+            <div class="feature-card animate-on-scroll" data-delay="100">
+                <div class="feature-icon">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-users"></i>
+                        <div class="icon-bg"></div>
+                    </div>
+                </div>
+                <h3>Global Community</h3>
+                <p>Connect with backers and creators from around the world who share your passion.</p>
+                <div class="feature-hover-effect"></div>
+            </div>
+            <div class="feature-card animate-on-scroll" data-delay="200">
+                <div class="feature-icon">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-rocket"></i>
+                        <div class="icon-bg"></div>
+                    </div>
+                </div>
+                <h3>Easy Launch</h3>
+                <p>Get your project live in minutes with our intuitive project creation tools.</p>
+                <div class="feature-hover-effect"></div>
+            </div>
+            <div class="feature-card animate-on-scroll" data-delay="300">
+                <div class="feature-icon">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-chart-line"></i>
+                        <div class="icon-bg"></div>
+                    </div>
+                </div>
+                <h3>Analytics & Insights</h3>
+                <p>Track your project's performance with detailed analytics and insights.</p>
+                <div class="feature-hover-effect"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+            <!-- Featured Projects -->
+            <section class="featured-section">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">Featured Projects</h2>
+                        <p class="section-subtitle">Discover amazing projects from creative minds around the world</p>
+                    </div>
+                    <div id="featured-projects" class="projects-grid">
+                        <!-- Projects will be loaded here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Categories Section -->
+            <section class="categories-section">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">Explore Categories</h2>
+                        <p class="section-subtitle">Find projects that match your interests</p>
+                    </div>
+                    <div class="categories-grid">
+                        <div class="category-card" onclick="filterByCategory('technology')">
+                            <div class="category-icon">
+                                <i class="fas fa-microchip"></i>
+                            </div>
+                            <h3>Technology</h3>
+                            <p>Innovative tech solutions</p>
+                        </div>
+                        <div class="category-card" onclick="filterByCategory('art')">
+                            <div class="category-icon">
+                                <i class="fas fa-palette"></i>
+                            </div>
+                            <h3>Art & Design</h3>
+                            <p>Creative masterpieces</p>
+                        </div>
+                        <div class="category-card" onclick="filterByCategory('music')">
+                            <div class="category-icon">
+                                <i class="fas fa-music"></i>
+                            </div>
+                            <h3>Music</h3>
+                            <p>Musical innovations</p>
+                        </div>
+                        <div class="category-card" onclick="filterByCategory('games')">
+                            <div class="category-icon">
+                                <i class="fas fa-gamepad"></i>
+                            </div>
+                            <h3>Games</h3>
+                            <p>Interactive entertainment</p>
+                        </div>
+                        <div class="category-card" onclick="filterByCategory('film')">
+                            <div class="category-icon">
+                                <i class="fas fa-film"></i>
+                            </div>
+                            <h3>Film & Video</h3>
+                            <p>Visual storytelling</p>
+                        </div>
+                        <div class="category-card" onclick="filterByCategory('design')">
+                            <div class="category-icon">
+                                <i class="fas fa-drafting-compass"></i>
+                            </div>
+                            <h3>Design</h3>
+                            <p>Functional beauty</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Projects View -->
+        <div id="projects" class="view">
+            <div class="container">
+                <div class="page-header">
+                    <h1 class="page-title">All Projects</h1>
+                    <div class="filters">
+                        <select id="category-filter" onchange="filterProjects()">
+                            <option value="">All Categories</option>
+                            <option value="technology">Technology</option>
+                            <option value="art">Art & Design</option>
+                            <option value="music">Music</option>
+                            <option value="games">Games</option>
+                            <option value="film">Film & Video</option>
+                            <option value="design">Design</option>
+                        </select>
+                        <select id="sort-filter" onchange="sortProjects()">
+                            <option value="newest">Newest First</option>
+                            <option value="popular">Most Popular</option>
+                            <option value="ending">Ending Soon</option>
+                            <option value="funded">Most Funded</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="all-projects" class="projects-grid">
+                    <!-- Projects will be loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- About View -->
+        <div id="about" class="view">
+            <div class="container">
+                <div class="about-hero">
+                    <h1 class="page-title">About FundIt</h1>
+                    <p class="page-subtitle">Empowering creators and connecting them with supporters worldwide</p>
+                </div>
+                
+                <div class="about-content">
+                    <div class="about-section">
+                        <div class="about-text">
+                            <h2>Our Mission</h2>
+                            <p>At FundIt, we believe that great ideas deserve a chance to become reality. Our platform connects creative minds with passionate supporters, making it possible for innovative projects to come to life.</p>
+                            <p>Since our founding, we've helped thousands of creators raise millions of dollars for projects ranging from cutting-edge technology to beautiful art installations.</p>
+                        </div>
+                        <div class="about-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-users"></i>
+                                <p>Our Community</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="values-section">
+                        <h2>Our Values</h2>
+                        <div class="values-grid">
+                            <div class="value-card">
+                                <div class="value-icon">
+                                    <i class="fas fa-lightbulb"></i>
+                                </div>
+                                <h3>Innovation</h3>
+                                <p>We support groundbreaking ideas that push boundaries and create positive change.</p>
+                            </div>
+                            <div class="value-card">
+                                <div class="value-icon">
+                                    <i class="fas fa-handshake"></i>
+                                </div>
+                                <h3>Trust</h3>
+                                <p>We build trust between creators and backers through transparency and accountability.</p>
+                            </div>
+                            <div class="value-card">
+                                <div class="value-icon">
+                                    <i class="fas fa-globe"></i>
+                                </div>
+                                <h3>Community</h3>
+                                <p>We foster a global community of creators, backers, and dreamers.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- How It Works View -->
+        <div id="how-it-works" class="view">
+            <div class="container">
+                <div class="page-header">
+                    <h1 class="page-title">How It Works</h1>
+                    <p class="page-subtitle">Simple steps to fund your dreams or support amazing projects</p>
+                </div>
+
+                <div class="how-it-works-content">
+                    <div class="steps-section">
+                        <h2>For Creators</h2>
+                        <div class="steps-grid">
+                            <div class="step-card">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h3>Create Your Project</h3>
+                                    <p>Tell your story, set your funding goal, and showcase your project with compelling visuals and descriptions.</p>
+                                </div>
+                            </div>
+                            <div class="step-card">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h3>Launch & Promote</h3>
+                                    <p>Share your project with friends, family, and social networks to build momentum and attract backers.</p>
+                                </div>
+                            </div>
+                            <div class="step-card">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h3>Engage & Update</h3>
+                                    <p>Keep your backers informed with regular updates and respond to their questions and feedback.</p>
+                                </div>
+                            </div>
+                            <div class="step-card">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h3>Deliver & Celebrate</h3>
+                                    <p>Once funded, bring your project to life and deliver rewards to your amazing backers.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="steps-section">
+                        <h2>For Backers</h2>
+                        <div class="steps-grid">
+                            <div class="step-card">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h3>Discover Projects</h3>
+                                    <p>Browse through amazing projects across various categories and find ones that inspire you.</p>
+                                </div>
+                            </div>
+                            <div class="step-card">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h3>Choose Your Support</h3>
+                                    <p>Select a reward tier that fits your budget and interests, or make a custom contribution.</p>
+                                </div>
+                            </div>
+                            <div class="step-card">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h3>Follow Progress</h3>
+                                    <p>Stay updated on your backed projects and engage with creators through comments and messages.</p>
+                                </div>
+                            </div>
+                            <div class="step-card">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h3>Receive Rewards</h3>
+                                    <p>Enjoy your rewards and the satisfaction of helping bring creative projects to life.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact View -->
+        <div id="contact" class="view">
+            <div class="container">
+                <div class="contact-hero">
+                    <h1 class="page-title">Get In Touch</h1>
+                    <p class="page-subtitle">Have questions? We'd love to hear from you</p>
+                </div>
+
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <h3>Email Us</h3>
+                            <p>support@fundit.com</p>
+                            <p>partnerships@fundit.com</p>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <h3>Call Us</h3>
+                            <p>+1 (555) 123-4567</p>
+                            <p>Mon-Fri 9AM-6PM EST</p>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <h3>Visit Us</h3>
+                            <p>123 Innovation Street</p>
+                            <p>San Francisco, CA 94105</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-container">
+                        <form id="contact-form" class="contact-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="contact-name">Name</label>
+                                    <input type="text" id="contact-name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contact-email">Email</label>
+                                    <input type="email" id="contact-email" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-subject">Subject</label>
+                                <select id="contact-subject" required>
+                                    <option value="">Select a subject</option>
+                                    <option value="general">General Inquiry</option>
+                                    <option value="support">Technical Support</option>
+                                    <option value="partnership">Partnership</option>
+                                    <option value="press">Press Inquiry</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-message">Message</label>
+                                <textarea id="contact-message" rows="6" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Login View -->
+        <div id="login" class="view">
+            <div class="container">
+                <div class="auth-container">
+                    <div class="auth-card">
+                        <h2>Welcome Back</h2>
+                        <p>Sign in to your FundIt account</p>
+                        
+                        <form id="login-form" class="auth-form">
+                            <div class="form-group">
+                                <label for="login-email">Email</label>
+                                <input type="email" id="login-email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="login-password">Password</label>
+                                <input type="password" id="login-password" required>
+                            </div>
+                            <div class="form-options">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="remember-me">
+                                    <span class="checkmark"></span>
+                                    Remember me
+                                </label>
+                                <a href="#" class="forgot-password">Forgot password?</a>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-full">Sign In</button>
+                        </form>
+                        
+                        <div class="auth-divider">
+                            <span>or</span>
+                        </div>
+                        
+                        <div class="social-login">
+                            <button class="btn btn-social btn-google">
+                                <i class="fab fa-google"></i>
+                                Continue with Google
+                            </button>
+                            <button class="btn btn-social btn-facebook">
+                                <i class="fab fa-facebook-f"></i>
+                                Continue with Facebook
+                            </button>
+                        </div>
+                        
+                        <p class="auth-switch">
+                            Don't have an account? <a href="#" onclick="showView('signup')">Sign up</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sign Up View -->
+        <div id="signup" class="view">
+            <div class="container">
+                <div class="auth-container">
+                    <div class="auth-card">
+                        <h2>Join FundIt</h2>
+                        <p>Create your account and start funding amazing projects</p>
+                        
+                        <form id="signup-form" class="auth-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="signup-firstname">First Name</label>
+                                    <input type="text" id="signup-firstname" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="signup-lastname">Last Name</label>
+                                    <input type="text" id="signup-lastname" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="signup-email">Email Address</label>
+                                <input type="email" id="signup-email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="signup-password">Password</label>
+                                <input type="password" id="signup-password" required minlength="8">
+                                <small>Password must be at least 8 characters long</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="signup-confirm-password">Confirm Password</label>
+                                <input type="password" id="signup-confirm-password" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="signup-user-type">I want to:</label>
+                                <select id="signup-user-type" required>
+                                    <option value="">Select your primary interest</option>
+                                    <option value="creator">Create and fund projects</option>
+                                    <option value="backer">Support amazing projects</option>
+                                    <option value="both">Both create and support projects</option>
+                                </select>
+                            </div>
+                            <div class="form-options">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="agree-terms" required>
+                                    <span class="checkmark"></span>
+                                    I agree to the <a href="#" onclick="showTerms()">Terms of Service</a> and <a href="#" onclick="showPrivacy()">Privacy Policy</a>
+                                </label>
+                            </div>
+                            <div class="form-options">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="newsletter-signup">
+                                    <span class="checkmark"></span>
+                                    Send me updates about new projects and platform news
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-full">Create Account</button>
+                        </form>
+                        
+                        <div class="auth-divider">
+                            <span>or</span>
+                        </div>
+                        
+                        <div class="social-login">
+                            <button class="btn btn-social btn-google" onclick="signUpWithGoogle()">
+                                <i class="fab fa-google"></i>
+                                Sign up with Google
+                            </button>
+                            <button class="btn btn-social btn-facebook" onclick="signUpWithFacebook()">
+                                <i class="fab fa-facebook-f"></i>
+                                Sign up with Facebook
+                            </button>
+                        </div>
+                        
+                        <p class="auth-switch">
+                            Already have an account? <a href="#" onclick="showView('login')">Sign in</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Create Project View -->
+        <div id="create" class="view">
+            <div class="container">
+                <div class="create-header">
+                    <h1 class="page-title">Create Your Project</h1>
+                    <p class="page-subtitle">Tell the world about your amazing idea</p>
+                </div>
+                
+                <div class="create-container">
+                    <form id="create-project-form" class="create-form">
+                        <div class="form-section">
+                            <h3>Project Basics</h3>
+                            <div class="form-group">
+                                <label for="project-title">Project Title</label>
+                                <input type="text" id="project-title" placeholder="Give your project a compelling title" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="project-description">Project Description</label>
+                                <textarea id="project-description" rows="6" placeholder="Describe your project in detail. What makes it special?" required></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="project-image-url">Project Image URL (optional)</label>
+                                <input type="url" id="project-image-url" placeholder="https://example.com/your-image.jpg">
+                                <small>Enter a direct link to your project image (JPG, PNG, or GIF)</small>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="project-category">Category</label>
+                                    <select id="project-category" required>
+                                        <option value="">Select a category</option>
+                                        <option value="technology">Technology</option>
+                                        <option value="art">Art & Design</option>
+                                        <option value="music">Music</option>
+                                        <option value="film">Film & Video</option>
+                                        <option value="games">Games</option>
+                                        <option value="design">Design</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="project-duration">Campaign Duration (days)</label>
+                                    <input type="number" id="project-duration" min="1" max="60" value="30" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>Funding Goal</h3>
+                            <div class="form-group">
+                                <label for="funding-goal">Funding Goal ($)</label>
+                                <input type="number" id="funding-goal" min="100" placeholder="How much do you need to raise?" required>
+                                <small>Set a realistic goal that covers your project costs</small>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-outline" onclick="showView('home')">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Create Project</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project Detail View -->
+        <div id="project-detail" class="view">
+            <div class="container">
+                <button class="btn btn-outline back-btn" onclick="showView('home')">
+                    <i class="fas fa-arrow-left"></i>
+                    Back to Projects
+                </button>
+                <div id="project-detail-content" class="project-detail">
+                    <!-- Project details will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <i class="fas fa-rocket"></i>
+                        <span>FundIt</span>
+                    </div>
+                    <p>Empowering creators worldwide to bring their dreams to life through community support.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Platform</h4>
+                    <ul>
+                        <li><a href="#" onclick="showView('projects')">Discover Projects</a></li>
+                        <li><a href="#" onclick="showView('create')">Start a Project</a></li>
+                        <li><a href="#" onclick="showView('how-it-works')">How It Works</a></li>
+                        <li><a href="#">Success Stories</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#" onclick="showView('contact')">Contact Us</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Trust & Safety</a></li>
+                        <li><a href="#">Creator Resources</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#" onclick="showView('about')">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 FundIt. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Payment Modal -->
+    <div id="payment-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Complete Your Contribution</h3>
+                <button class="close-btn" onclick="closePaymentModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="payment-form" class="payment-form">
+                <div class="form-section">
+                    <h4>Personal Information</h4>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contributor-name">Full Name</label>
+                            <input type="text" id="contributor-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contributor-email">Email</label>
+                            <input type="email" id="contributor-email" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h4>Payment Information</h4>
+                    <div class="form-group">
+                        <label for="card-number">Card Number</label>
+                        <input type="text" id="card-number" placeholder="1234 5678 9012 3456" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="expiry">Expiry Date</label>
+                            <input type="text" id="expiry" placeholder="MM/YY" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cvv">CVV</label>
+                            <input type="text" id="cvv" placeholder="123" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <div class="contribution-summary">
+                        <div class="summary-row">
+                            <span>Contribution Amount:</span>
+                            <span id="contribution-display">$0</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Processing Fee:</span>
+                            <span id="fee-display">$0</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Total:</span>
+                            <span id="total-display">$0</span>
+                        </div>
+                    </div>
+                    <input type="hidden" id="contribution-amount">
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-full">
+                    <i class="fas fa-lock"></i>
+                    Complete Payment
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="modal">
+        <div class="modal-content success-content">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3>Thank You!</h3>
+            <p>Your contribution has been processed successfully.</p>
+            <button class="btn btn-primary" onclick="closeSuccessModal()">Continue</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="animation.js"></script>
+</body>
+</html>
